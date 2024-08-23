@@ -1,3 +1,11 @@
+// creates variables to store time and calls set up function passing start value
+public static void timer(int startVal){
+    long startTime = System.currentTimeMillis();
+    setUp(startVal);
+    long endTime = System.currentTimeMillis();
+    System.out.println("Time elapsed:" + String.valueOf(endTime - startTime) + " miliseconds");
+}
+// creates an array with all values from 1 to start value, takes care of n=0 and n=1 case
 public static String setUp(int StartVal){
         int[] numbers = new int[StartVal];
         if (StartVal > 1){
@@ -10,12 +18,14 @@ public static String setUp(int StartVal){
         } else if (StartVal == 1){
             System.out.println("1");
         } else System.out.println("0");;
-        return "setup complete";
+        return "setup complete"; //this line does nothing but is structurally important and good for debugging
 }
 
+// takes an array and an index of a number you want to remove and returns an array of size one smaller
+// to make code faster remove this and replace an array with nodes
+// this function creates an entirely new list everytime and is the main time sink
 public static int[] removeNum(int[] startList, int index){
-    int[] testSuccess = new int[]{88,88,88};
-    if(startList.length == 0 || index > startList.length){
+    if(startList.length == 0 || index > startList.length){ //makes sure the array is not empty and the index is in bounds
         return null;
     } else {
         int[] newArray = new int[startList.length - 1];
@@ -32,6 +42,7 @@ public static int[] removeNum(int[] startList, int index){
     }
 }
 
+//Sting generator is the recursing function and adds the values into a string
 public static String stringGen(String stringSoFar, int[] numbers){
         if(numbers.length == 0){
             System.out.println("0");
@@ -48,13 +59,16 @@ public static String stringGen(String stringSoFar, int[] numbers){
 
 public static void main() {
     System.out.println("Zero Case:");
-    setUp(0);
+    timer(0);
     System.out.println("One Case:");
-    setUp(1);
+    timer(1);
     System.out.println("Two Case:");
-    setUp(2);
+    timer(2);
     System.out.println("Three Case:");
-    setUp(3);
+    timer(3);
     System.out.println("Four Case:");
-    setUp(4);
+    timer(4);
+    //timer(5);
+    //timer(6);
+    //timer(7);
 }
