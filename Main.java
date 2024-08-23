@@ -1,41 +1,63 @@
+import java.util.Arrays;
+import java.util.ArrayList;
+
 public class Main {
     public int startVal;
-    public int count;
+    public int size;
     public int[] numbers;
 
-    public void stringGen(int startVal){
-        this.startVal = startVal;
-        this.count = startVal - 1;
-        // numbers = int[startVal];
-        if(startVal == 0){
-            System.out.println("pick a diff num");
-        } else if(startVal == 1){
-            System.out.println("1");
-        } else {
-            String countUp = "1";
-            String countDown = String.valueOf(startVal);
-            while (count > 0){
-                // start val = 3
-                // count = 2
-                // statVal - count = 1
-
-                countUp += String.valueOf(count - startVal);
-                countDown += String.valueOf(count);
-                count--;
+    public void setUp(int StartVal){
+        this.startVal = StartVal;
+        this.size = StartVal;
+        numbers = new int[startVal];
+        if (startVal > 0){
+            for (int i = 0; i < startVal; i++) {
+                numbers[i] = i + 1;
             }
-            System.out.println(countUp);
-            System.out.println(countDown);
+            stringGen("",numbers);
+        } else System.out.println("0");
+    }
+
+    public int[] removeNum(int[] startList, int index){
+        if(startList.length == 0 || index > startList.length){
+            return null;
+        } else {
+            int[] newArray = new int[startList.length - 1];
+            for (int i = 0; i < startList.length; i++) {
+                if (i < index) {
+                    newArray[i] = startList[i];
+                } else if (i == index) {
+                    continue;
+                } else if (i > index) {
+                    newArray[i - 1] = startList[i];
+                } else return startList;
+            }
+            return newArray;
+        }
+    }
+
+    public void stringGen(String stringSoFar, int[] numbers){
+        if(numbers.length == 0){
+            System.out.println("0");
+        } else if (numbers.length == 1){
+            stringSoFar += String.valueOf(numbers[0]);
+            System.out.println(stringSoFar);
+        } else {
+            for (int i = 0; i < numbers.length; i++) {
+                stringGen(stringSoFar += numbers[i], removeNum(numbers, i));
+            }
         }
     }
 
     public void main() {
         System.out.println("Yippee");
         System.out.println("Zero Case:");
-        stringGen(0);
+        setUp(0);
         System.out.println("One Case:");
-        stringGen(1);
+        setUp(1);
         System.out.println("Two Case:");
-        stringGen(2);
+        setUp(2);
+        System.out.println("Three Case:");
+        setUp(3);
     }
 }
-
