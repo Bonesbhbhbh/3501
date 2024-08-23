@@ -2,19 +2,21 @@ import java.util.Arrays;
 import java.util.ArrayList;
 
 public class Main {
-    public int startVal;
-    public int size;
-    public int[] numbers;
+//    public int startVal;
+//    public int size;
+//    public int[] numbers;
 
     public void setUp(int StartVal){
-        this.startVal = StartVal;
-        this.size = StartVal;
+//        this.startVal = StartVal;
+//        this.size = StartVal;
         numbers = new int[startVal];
         if (startVal > 0){
             for (int i = 0; i < startVal; i++) {
                 numbers[i] = i + 1;
+                stringGen(String.valueOf(i),remove(numbers,i));
+                }
             }
-            stringGen("",numbers);
+            //stringGen("",numbers);
         } else System.out.println("0");
     }
 
@@ -37,16 +39,23 @@ public class Main {
     }
 
     public void stringGen(String stringSoFar, int[] numbers){
-        if(numbers.length == 0){
-            System.out.println("0");
-        } else if (numbers.length == 1){
-            stringSoFar += String.valueOf(numbers[0]);
-            System.out.println(stringSoFar);
+        if(numbers.length == 0) {
+            return stringSoFar;
         } else {
             for (int i = 0; i < numbers.length; i++) {
-                stringGen(stringSoFar += numbers[i], removeNum(numbers, i));
+                stringGen(stringSoFar + String.valueOf(i),removeNum(numbers,i));
             }
         }
+//        if(numbers.length == 0){
+//            System.out.println("0");
+//        } else if (numbers.length == 1){
+//            stringSoFar += String.valueOf(numbers[0]);
+//            System.out.println(stringSoFar);
+//        } else {
+//            for (int i = 0; i < numbers.length; i++) {
+//                stringGen(stringSoFar += numbers[i], removeNum(numbers, i));
+//            }
+//        }
     }
 
     public void main() {
@@ -57,7 +66,7 @@ public class Main {
         setUp(1);
         System.out.println("Two Case:");
         setUp(2);
-        System.out.println("Three Case:");
-        setUp(3);
+        // System.out.println("Three Case:");
+        // setUp(3);
     }
 }
