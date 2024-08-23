@@ -47,7 +47,6 @@ public static String stringGen(String stringSoFar, int[] numbers){
 }
 
 public static void main() {
-    // System.out.println("Yippee"); //theres no joy here :(
     System.out.println("Zero Case:");
     setUp(0);
     System.out.println("One Case:");
