@@ -1,4 +1,4 @@
-
+// El Anderson 
 public class Main {
 
     // creates variables to store time and calls set up function passing start value
@@ -60,7 +60,7 @@ public class Main {
             return stringSoFar;
     }
 
-    public static void main() {
+    public static void main(Strings[] args) {
         System.out.println("Zero Case:");
         timer(0);
         System.out.println("One Case:");
