@@ -23,6 +23,10 @@ The number of lines output by the code is n factorial (n!)
         to find how long n = 20 would run, we do:
         0.08 * 20! = 1.9463216e+17
 
+    b.
+        El's code has a runtime of approiximatly 0.0017*O(n!). 
+        This was found in the same way that Josie's runtime was derrived. Here is a link to the math we did when calculating runtimes and our constants : https://docs.google.com/spreadsheets/d/16VdmDaRfDrzz2ps4Kza7p3GPDtJJmtsusJOy6fWeXSg/edit?usp=sharing
+        For n = 15 the time it would take to run would be ~2223046425.6 milliseconds
+            for n = 20 it would be ~ 4.1359334e+1 milliseconds
 
-        
-
+// Both constants were found using El's laptop and the runtime differences are from running the code on Intelij vs VS code.
